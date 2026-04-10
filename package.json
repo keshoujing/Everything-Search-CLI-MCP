@@ -1,6 +1,6 @@
 {
   "name": "everything-search-cli-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server wrapping es.exe (Everything Search CLI) for Windows file search",
   "type": "module",
   "license": "MIT",

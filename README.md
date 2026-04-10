@@ -19,18 +19,23 @@ An MCP server that wraps [es.exe](https://www.voidtools.com/es/) (Everything Sea
 
 ```
 You are an AI assistant. The user wants you to install the everything-search-cli-mcp MCP server.
-Please follow these steps:
+
+First, ask the user: "Which AI tool are you using in list format, then install and change necessary file for user (e.g. Claude Code, Codex CLI, Cursor, VS Code, Claude Desktop)"
+
+Then follow the steps below based on their answer:
+
+--- If Claude Code, Codex CLI, or Cursor (has terminal access) ---
 
 1. Install globally:
    npm install -g everything-search-cli-mcp
 
-2. Register the MCP server based on your environment:
+2. Register:
    - Claude Code:  claude mcp add everything-search -- everything-search-cli-mcp
    - Codex CLI:    codex mcp add everything-search -- everything-search-cli-mcp
-   - Cursor:       add to .cursor/mcp.json (see JSON below)
-   - VS Code:      add to .vscode/mcp.json (see JSON below)
+   - Cursor:       add the JSON below to .cursor/mcp.json in the project root
+   - VS Code:      add the JSON below to .vscode/mcp.json in the project root
 
-   JSON format (for Cursor / VS Code):
+   JSON format:
    {
      "mcpServers": {
        "everything-search": {
@@ -39,7 +44,19 @@ Please follow these steps:
      }
    }
 
-3. Inform the user that installation is complete and ask them to restart their AI tool for the config to take effect.
+3. Tell the user installation is complete and ask them to restart their AI tool.
+
+--- If Claude Desktop ---
+
+Claude Desktop does not support automatic installation. Tell the user to follow these manual steps:
+
+1. Run in terminal:  npm install -g everything-search-cli-mcp
+2. Open: %APPDATA%\Claude\claude_desktop_config.json
+3. Add the following inside "mcpServers":
+   "everything-search": {
+     "command": "everything-search-cli-mcp"
+   }
+4. Restart Claude Desktop.
 
 Note: This MCP is Windows-only and requires the Everything desktop app to be installed and running (https://www.voidtools.com/).
 ```

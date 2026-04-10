@@ -15,28 +15,7 @@ An MCP server that wraps [es.exe](https://www.voidtools.com/es/) (Everything Sea
 
 ## Setup
 
-### 1. es.exe binaries
-
-`es.exe` binaries for all architectures are pre-bundled in the `bin/` directory — no download needed for most users.
-
-| File | Architecture |
-|------|-------------|
-| `bin/es-x64.exe` | x64 (most PCs) |
-| `bin/es-x86.exe` | 32-bit |
-| `bin/es-arm64.exe` | ARM64 |
-
-Only the binary matching your system's architecture is used at runtime. To use a newer version, download the latest `es.exe` from [voidtools](https://www.voidtools.com/es/) and replace the corresponding file in `bin/`.
-
-### 2. Build
-
-```bash
-npm install
-npm run build
-```
-
-### 3. Configure Claude Desktop
-
-Install globally via npm:
+### Option A: Install via npm (recommended)
 
 ```bash
 npm install -g everything-search-cli-mcp
@@ -54,7 +33,9 @@ Then add to your `claude_desktop_config.json`:
 }
 ```
 
-Or if running from source:
+### Option B: Manual download
+
+Download the latest release from the [Releases page](../../releases), extract, then add to your `claude_desktop_config.json`:
 
 ```json
 {
@@ -66,6 +47,16 @@ Or if running from source:
   }
 }
 ```
+
+### es.exe binaries
+
+`es.exe` is pre-bundled for all architectures — no separate download needed. To use a newer version, download the latest from [voidtools](https://www.voidtools.com/es/) and replace the corresponding file in `bin/`:
+
+| File | Architecture |
+|------|-------------|
+| `bin/es-x64.exe` | x64 (most PCs) |
+| `bin/es-x86.exe` | 32-bit |
+| `bin/es-arm64.exe` | ARM64 |
 
 ---
 

@@ -13,36 +13,54 @@ An MCP server that wraps [es.exe](https://www.voidtools.com/es/) (Everything Sea
 
 ---
 
+## 🤖 AI Assistant Quick Install
+
+> Copy the text block below and paste it to your AI assistant (Claude Code, Codex, Cursor, etc.) — it will install and register this MCP automatically.
+
+```
+You are an AI assistant. The user wants you to install the everything-search-cli-mcp MCP server.
+Please follow these steps:
+
+1. Install globally:
+   npm install -g everything-search-cli-mcp
+
+2. Register the MCP server based on your environment:
+   - Claude Code:  claude mcp add everything-search -- everything-search-cli-mcp
+   - Codex CLI:    codex mcp add everything-search -- everything-search-cli-mcp
+   - Cursor:       add to .cursor/mcp.json (see JSON below)
+   - VS Code:      add to .vscode/mcp.json (see JSON below)
+
+   JSON format (for Cursor / VS Code):
+   {
+     "mcpServers": {
+       "everything-search": {
+         "command": "everything-search-cli-mcp"
+       }
+     }
+   }
+
+3. Inform the user that installation is complete and ask them to restart their AI tool for the config to take effect.
+
+Note: This MCP is Windows-only and requires the Everything desktop app to be installed and running (https://www.voidtools.com/).
+```
+
+---
+
 ## Setup
 
-### Option A: Install via npm (recommended)
+**1. Install:**
 
 ```bash
 npm install -g everything-search-cli-mcp
 ```
 
-Then add to your `claude_desktop_config.json`:
+**2. Register in your AI tool's config:**
 
 ```json
 {
   "mcpServers": {
-    "everything": {
+    "everything-search": {
       "command": "everything-search-cli-mcp"
-    }
-  }
-}
-```
-
-### Option B: Manual download
-
-Download the latest release from the [Releases page](../../releases), extract, then add to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "everything": {
-      "command": "node",
-      "args": ["C:/path/to/everything-search-cli-mcp/dist/index.js"]
     }
   }
 }
